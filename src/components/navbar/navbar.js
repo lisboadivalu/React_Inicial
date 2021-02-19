@@ -4,7 +4,7 @@ import "./navbar.css";
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <span>React Incial</span>
+      <span>Scrum React</span>
     </nav>
   );
 }

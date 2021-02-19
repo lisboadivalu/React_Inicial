@@ -4,7 +4,14 @@ import PropTypes from "prop-types";
 
 import TaskItem from "../taskitem/TaskItem";
 
-export default function TaskList({ title, taskState, onAddTask, tasks }) {
+export default function TaskList({
+  title,
+  taskState,
+  onAddTask,
+  tasks,
+  onTaskUpdate,
+  onDeleteTask
+}) {
   const addTask = () => {
     onAddTask("Nova Tarefa", taskState);
   };
@@ -20,11 +27,16 @@ export default function TaskList({ title, taskState, onAddTask, tasks }) {
               id={task.id}
               title={task.title}
               state={task.state}
+              onTaskUpdate={onTaskUpdate}
+              onDeleteTask={onDeleteTask}
             />
           );
         })}
+        {tasks.length === 0 && <div className="empty-list">Lista Vazia</div>}
+        <button onClick={addTask} className="btn">
+          Adicionar Tarefa
+        </button>
       </div>
-      <button onClick={addTask}>Adicionar Tarefa</button>
     </div>
   );
 }
