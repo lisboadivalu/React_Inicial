@@ -4,14 +4,7 @@ import PropTypes from "prop-types";
 
 import TaskItem from "../taskitem/TaskItem";
 
-export default function TaskList({
-  title,
-  taskState,
-  onAddTask,
-  tasks,
-  onTaskUpdate,
-  onDeleteTask
-}) {
+export default function TaskList({ title, taskState, onAddTask, tasks }) {
   const addTask = () => {
     onAddTask("Nova Tarefa", taskState);
   };
@@ -27,8 +20,6 @@ export default function TaskList({
               id={task.id}
               title={task.title}
               state={task.state}
-              onTaskUpdate={onTaskUpdate}
-              onDelete={onDeleteTask}
             />
           );
         })}
